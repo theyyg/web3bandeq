@@ -43,8 +43,8 @@ After investigating the available web technologies, I selected the Web Audio API
 ** Visualization
 - HTML5 Canvas
 
-** Roadmap [0%]
-- [ ] Protype html page with eq sliders, playback button, and pause button.  Control events will be presented at javascript alerts().
+** Roadmap [11%]
+- [X] Protype html page with eq sliders, playback button, and pause button.  
 - [ ] Add audio playback and pause functionality using Pizzicato
 - [ ] Add a low pass filter and select cutoff frequency
 - [ ] Add a high pass filter and select cutoff frequency
