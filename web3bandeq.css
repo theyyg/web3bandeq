@@ -1,0 +1,105 @@
+/* Style Customization */
+
+/* Header text style */
+h1 {
+    font-family: 'Merriweather',Georgia,"Times New Roman",serif;
+    text-decoration: underline;
+    -webkit-text-decoration-color: #c3e3e8;
+    text-decoration-color: #c3e3e8;
+    font-size: 48px;
+    font-weight: 500;
+    color: #000000!important;
+    line-height: 32px;
+    text-align: center;
+}
+
+/* Navigation Text Style */
+div .nav {
+    font-family: 'Nunito',Helvetica,Arial,Lucida,sans-serif;
+    font-weight: 800;
+    font-size: 12px;
+}
+
+/* Accent Controls */
+.3beq-yellow {
+    color:#f9d353!important;
+    background-color:#fff!important
+}
+
+.3beq-yellow-inv {
+    color:#fff!important;
+    background-color:#f9d353!important
+}
+
+.3beq-yellow-accent {
+    color:#000!important;
+    background-color:#fff!important
+    -webkit-text-decoration-color: #f9d353;
+    text-decoration-color: #f9d353;
+}
+
+.3beq-cyan {
+    color:#c3e3e8!important;
+    background-color:#fff!important
+}
+
+.3beq-cyan-inv {
+    color:#000!important;
+    background-color:#c3e3e8!important
+}
+
+.3beq-cyan-accent {
+    color:#000!important;
+    background-color:#fff!important
+    -webkit-text-decoration-color: #c3e3e8;
+    text-decoration-color: #c3e3e8;
+}
+
+.3beq-grey {
+    color:#A6B7C0!important;
+    background-color:#fff!important
+}
+
+.3beq-grey-inv {
+    color:#000!important;
+    background-color:#A6B7C0!important
+}
+
+.3beq-grey-accent {
+    color:#000!important;
+    background-color:#fff!important
+    -webkit-text-decoration-color: #A6B7C0;
+    text-decoration-color: #A6B7C0;
+}
+
+input[type=range].vertical-slider {
+    height: 137px;
+    width: 20px;
+    -webkit-appearance: slider-vertical
+}
+
+input[type=range].horizontal-slider {
+    height: 20px;
+    width: 137px;
+}
+
+div.visualizer {
+    height: 200px;
+    width: 320px;
+}
+
+.slider-group div {
+    text-align: center;
+}
+
+.slider label {
+    text-align: center;
+}
+
+.slider:first-child {
+    border-radius: 8px 0px 0px 8px;
+}
+
+.slider:last-child {
+    border-radius: 0px 8px 8px 0px;
+}

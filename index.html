@@ -1,0 +1,49 @@
+
+<!DOCTYPE html>
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="reset.css">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="web3bandeq.css">
+<body>
+
+<div class="w3-container">
+  <h1>Web-based Three Band Equalizer</h1>
+</div>
+
+<div class="w3-container">
+  <div class="3beq-yellow visualizer">
+    Placeholder for Visualization Canvas
+  </div>
+</div>
+<div class="w3-container">
+  <div class="w3-row-padding slider-group">
+  <div class="w3-quarter w3-hide-small"> </div>
+  <div class="w3-rest">
+      <div class="w3-third slider">
+	<label for="low-band-eq">Low</label>
+	<input type="range" min="0" max="2" step="0.01" value="1" id="low-band-eq" class="vertical-slider" orient="vertical">
+	<div class="low-band-value">0.6</div>
+      </div>
+      <div class="w3-third slider">
+	<label for="mid-band-eq">Mid</label>
+	<input type="range" min="0" max="2" step="0.01" value="1" id="mid-band-eq" class="vertical-slider" orient="vertical">
+	<div class="mid-band-value">0.6</div>
+      </div>
+      <div class="w3-third slider">
+	<label for="high-band-eq">High</label>
+	<input type="range" min="0" max="2" step="0.01" value="1" id="high-band-eq" class="vertical-slider" orient="vertical">
+	<div class="high-band-value">0.6</div>
+      </div>
+  </div>
+  <div class="controls w3-row-padding">
+    <button id="stop" class="stop action w3-third">Stop</button>
+    <button id="pause" class="pause action w3-third">Pause</button>
+    <button id="play" class="play action w3-third">Play</button>
+  </div>
+ </div>
+  <div class="w3-quarter w3-hide-small">&nbsp; </div>
+</div>
+
+</body>
+</html>
