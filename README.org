@@ -1,0 +1,56 @@
+#+TITLE: Web3BandEq
+#+AUTHOR: Blaine Wood
+#+DATE: 2021-08-08
+#+OPTIONS: date
+
+Web3BandEq - A web-based three band equalizer using Web Audio API
+
+* TODO How to use
+
+* TODO Objective
+Web3BandEq is a simple repository to demonstrate audio processing in a web browser. 
+
+* TODO Design
+
+** Requirements
+*** Function
+- Provide equalized playback of the selected audio file without distortion or clipping.  
+- The user may play and pause audio playback.
+- The gain for each of the three frequency bands may be controlled by the user.
+*** Input
+- Three slider controls to set the gain for each of the frequency bands: low, mid, and high
+- A play button which when pressed starts playback of the audio file or resumes playback of the audio file if paused.
+- A pause button which when pressed halts the playback of the audio file.  The current position of playback is not reset allowing for resumed playback from the paused playback position.
+*** Ouput
+- Equalized audio playback of the selected audio file.
+- The current state of the controls are represented visually.
+- Playback is clean without artifacts or distortion.
+- Changes to the controls do not introduce audio artifacts or distortion.
+
+** Technologies
+After investigating the available web technologies, I selected the Web Audio API for this project.  As a new project, I didn't want to use deprecated technologies in order to extend its usefulness.  The audio element in HTML5 does not have sufficient power to support more than simple playback functionality.  After seeing the capabilites of the Web Audio API, I decided a full game engine like Unity3D was unnecessary.  Modern browsers provide playback control and a convolution engine for audio algorithms.  The browser can be scripted to perform all of the processing necessary for this project.
+- Legacy Plugins (Quicktime or Flash) - Deprecated method of extending web pages to include audio.  These technologies are no longer supported and should not be used for new development.
+- HTML5 - A new audio element was added to HTML in version 5.  The capabilities are limited to basic playback.
+- Web Audio API - A javascript API specification that allows browers to provide powerful audio capabilities to web sites.  
+- Unity 3D - Modern plugins can provide the power of entire game engine with advanced audio.
+
+** Web-based Audio Libraries
+- Howler.js
+- Pizzicato
+- Tone.js
+- Soundjs
+
+** Visualization
+- HTML5 Canvas
+
+** Roadmap [0%]
+- [ ] Protype html page with eq sliders, playback button, and pause button.  Control events will be presented at javascript alerts().
+- [ ] Add audio playback and pause functionality using Pizzicato
+- [ ] Add a low pass filter and select cutoff frequency
+- [ ] Add a high pass filter and select cutoff frequency
+- [ ] Add a bandpass filter with the previously selected cutoff frequencies
+- [ ] Clean up the design and implementation of the web page, and upload to github pages.
+- [ ] Update the github pages implementation to use the minified version of pizzicato.
+- [ ] Add a visualization to represent the frequency band gains
+- [ ] Move gain control from html input elements to the HTML5 canvas visualization
+
