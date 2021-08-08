@@ -11,7 +11,7 @@ var threeBandEq = new Pizzicato.Effects.ThreeBandEqualizer({
 */
 
 // PZ Sound
-var sound = new Pizzicato.Sound('audio/nature.wav', function() {
+var sound = new Pizzicato.Sound('./audio/nature.wav', function() {
     // Enable after adding the threeBandEq to Pizzacato
     //sounds.last().addEffect(threeBandEq);
 });
