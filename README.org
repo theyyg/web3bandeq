@@ -45,9 +45,9 @@ After investigating the available web technologies, I selected the Web Audio API
 ** Visualization
 - HTML5 Canvas
 
-** Roadmap [11%]
+** Roadmap [22%]
 - [X] Protype html page with eq sliders, playback button, and pause button.  
-- [ ] Add audio playback and pause functionality using Pizzicato
+- [X] Add audio playback and pause functionality using Pizzicato
 - [ ] Add a low pass filter and select cutoff frequency
 - [ ] Add a high pass filter and select cutoff frequency
 - [ ] Add a bandpass filter with the previously selected cutoff frequencies
@@ -56,3 +56,40 @@ After investigating the available web technologies, I selected the Web Audio API
 - [ ] Add a visualization to represent the frequency band gains
 - [ ] Move gain control from html input elements to the HTML5 canvas visualization
 
+** Processing
+The signal flow diagram below shows the processing architecture used.
+
+#+begin_src plantuml :file images/signal-arch.png
+  rectangle "AudioSource" as source
+  rectangle "Low-Band Filter" as low
+  rectangle "Gain Stage" as low_gain
+  rectangle "Mid-Band Filter" as mid
+  rectangle "Gain Stage" as mid_gain
+  rectangle "High-Band Filter" as high
+  rectangle "Gain Stage" as high_gain
+  rectangle "Destination" as mixer
+  rectangle "AudioListener" as listener
+
+  high -[hidden]d->mid
+  mid -[hidden]d->low
+
+  high_gain -[hidden]d-> mid_gain
+  mid_gain -[hidden]d-> low_gain
+
+  source -> low
+  source -right-> mid
+  source -> high
+
+  low -> low_gain
+  mid -> mid_gain
+  high -> high_gain
+
+  low_gain -> mixer
+  mid_gain -right-> mixer
+  high_gain -> mixer
+
+  mixer -> listener
+#+end_src
+
+* Resources
+[[https://developer.mozilla.org/en-US/docs/Web/API/AudioNode/webaudiobasics.png][Web Audio Routing]]

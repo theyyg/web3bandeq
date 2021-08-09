@@ -1,3 +1,5 @@
 [submodule "pizzicato"]
 	path = pizzicato
 	url = https://github.com/theyyg/pizzicato.git
+[submodule "pizzicato/"]
+	url = https://github.com/theyyg/pizzicato.git

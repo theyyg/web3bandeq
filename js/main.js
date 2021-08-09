@@ -6,12 +6,12 @@ var threeBandEq = new Pizzicato.Effects.ThreeBandEqualizer({
     low_band_gain: 1,
     mid_band_gain: 1,
     high_band_gain: 1,
-    peak: 10
+    peak: 1
 });
 */
 
 // PZ Sound
-var sound = new Pizzicato.Sound('./audio/synth.mp3', function() {
+var sound = new Pizzicato.Sound('https://theyyg.github.io/web3bandeq/audio/synth.mp3', function() {
     // Enable after adding the threeBandEq to Pizzacato
     //sounds.last().addEffect(threeBandEq);
 });
