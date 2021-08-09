@@ -14,7 +14,6 @@ var sound = new Pizzicato.Sound('https://theyyg.github.io/web3bandeq/audio/synth
     sound.addEffect(threeBandEq);
 });
 
-
 var threeBandSegment = {
     audio: sound,
     playButton: document.getElementById('play'),
@@ -42,14 +41,17 @@ var threeBandSegment = {
 
     segment.audio.on('play', function() {
 	segment.playButton.classList.add('pause');
+        segment.playButton.innerHTML = "Pause";
     });
 
     segment.audio.on('stop', function() {
 	segment.playButton.classList.remove('pause');
+        segment.playButton.innerHTML = "Play";
     });
 
     segment.audio.on('pause', function() {
 	segment.playButton.classList.remove('pause');
+        segment.playButton.innerHTML = "Play";
     });
 
     segment.playButton.addEventListener('click', function(e) {
@@ -76,7 +78,7 @@ var threeBandSegment = {
 
 		slider.addEventListener('input', function(e) {
                     instance[key] = e.target.valueAsNumber;
-		    display.innerHTML = 20 * Math.log10(e.target.valueAsNumber);
+		    display.innerHTML = e.target.valueAsNumber.toFixed(0) + " dB";
 		});
 
 	    })(key, effect.parameters[key], effect.instance);	

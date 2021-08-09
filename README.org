@@ -45,12 +45,12 @@ After investigating the available web technologies, I selected the Web Audio API
 ** Visualization
 - HTML5 Canvas
 
-** Roadmap [22%]
+** Roadmap [55%]
 - [X] Protype html page with eq sliders, playback button, and pause button.  
 - [X] Add audio playback and pause functionality using Pizzicato
-- [ ] Add a low pass filter and select cutoff frequency
-- [ ] Add a high pass filter and select cutoff frequency
-- [ ] Add a bandpass filter with the previously selected cutoff frequencies
+- [X] Add a low pass filter and select cutoff frequency
+- [X] Add a high pass filter and select cutoff frequency
+- [X] Add a bandpass filter with the previously selected cutoff frequencies
 - [ ] Clean up the design and implementation of the web page, and upload to github pages.
 - [ ] Update the github pages implementation to use the minified version of pizzicato.
 - [ ] Add a visualization to represent the frequency band gains
