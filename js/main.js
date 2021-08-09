@@ -1,5 +1,4 @@
 // Effects
-/*
 var threeBandEq = new Pizzicato.Effects.ThreeBandEqualizer({
     cutoff_frequency_low: 400,
     cutoff_frequency_high: 4000,
@@ -8,12 +7,11 @@ var threeBandEq = new Pizzicato.Effects.ThreeBandEqualizer({
     high_band_gain: 1,
     peak: 1
 });
-*/
 
 // PZ Sound
 var sound = new Pizzicato.Sound('https://theyyg.github.io/web3bandeq/audio/synth.mp3', function() {
     // Enable after adding the threeBandEq to Pizzacato
-    //sounds.last().addEffect(threeBandEq);
+    sound.addEffect(threeBandEq);
 });
 
 
@@ -24,7 +22,6 @@ var threeBandSegment = {
     lowBandSlider: document.getElementById('low-band-gain'),
     midBandSlider: document.getElementById('mid-band-gain'),
     highBandSlider: document.getElementById('high-band-gain'),
-    /*
     effects: [
 	{
 	    instance: threeBandEq,
@@ -38,7 +35,6 @@ var threeBandSegment = {
 	    }
 	}
     ]
-    */
 };
 
 
