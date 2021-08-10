@@ -5,12 +5,14 @@
 
 Web3BandEq - A web-based three band equalizer using Web Audio API
 
-* TODO How to use
+* How to use
 
 This repository uses git-lfs to store .wav files.  You can install git-lfs using [[https://git-lfs.github.com/][these instructions]].
 
+Visit the demo on [[https://theyyg.github.io/web3bandeq/][github pages]].
+
 * TODO Objective
-Web3BandEq is a simple repository to demonstrate audio processing in a web browser. 
+Web3BandEq is a simple repository to demonstrate audio processing in a web browser.  It extends the Pizzicato Javascript library to include a ThreeBandEqualizer effect, which is implemented with Web Audio API biquad filters.  It also extracts the frequency reponse of the equalizer for display on an HTML5 canvas.
 
 * TODO Design
 
@@ -122,7 +124,6 @@ The signal flow diagram below shows the processing architecture used.
   @enduml
 #+end_src
 
-#+RESULTS:
 [[file:images/signal_arch.png]]
 
 * Resources
