@@ -1,11 +1,13 @@
 // Effects
 var threeBandEq = new Pizzicato.Effects.ThreeBandEqualizer({
-    cutoff_frequency_low: 400,
+    cutoff_frequency_low: 200,
     cutoff_frequency_high: 4000,
-    low_band_gain: 1,
-    mid_band_gain: 1,
-    high_band_gain: 1,
-    peak: 1
+    low_band_gain: -6,
+    mid_band_gain: 0,
+    high_band_gain: 0,
+    low_peak: 0.4,
+    mid_peak: 1,
+    high_peak: 3
 });
 
 // PZ Sound
@@ -42,6 +44,7 @@ var threeBandSegment = {
     segment.audio.on('play', function() {
 	segment.playButton.classList.add('pause');
         segment.playButton.innerHTML = "Pause";
+        visualize();
     });
 
     segment.audio.on('stop', function() {
@@ -87,3 +90,62 @@ var threeBandSegment = {
     
 })(threeBandSegment);
 
+// Visualizer
+var canvas = document.getElementById('visualizer');
+var canvasCtx = canvas.getContext('2d');
+
+var drawVisual;
+
+function visualize() {
+    WIDTH = canvas.width;
+    HEIGHT = canvas.height;
+
+    var bufferLength = threeBandSegment.effects[0].instance.visualizerBinCount;
+    console.log("Visualizer has " + bufferLength + " bins");
+    var dataArray = new Uint8Array(bufferLength);
+
+    canvasCtx.clearRect(0, 0, WIDTH, HEIGHT);
+
+    var draw = function() {
+        let playButton = document.getElementById('play');
+        // Stop drawing if audio isn't playing
+        if (playButton == null || !playButton.classList.contains('pause'))
+            return;
+        
+        drawVisual = requestAnimationFrame(draw);
+
+        if ( !threeBandSegment.effects || !threeBandSegment.effects.length )
+            return;
+
+        WIDTH = canvas.width;
+        HEIGHT = canvas.height;
+        
+        let analyser = threeBandSegment.effects[0].instance.analyser;
+        analyser.getByteFrequencyData(dataArray);
+
+        // dataArray.set(threeBandSegment.effects[0].instance.frequencyData, bufferLength);
+        
+        canvasCtx.fillStyle = 'rgb(256, 256, 256)';
+        canvasCtx.fillRect(0, 0, WIDTH, HEIGHT);
+
+        let barWidth = (WIDTH / bufferLength) * 2;
+        let barHeight;
+        let x = 0;
+
+        for(let i = 0; i < bufferLength; i++) {
+            let brightness = dataArray[i] / 256;
+            let red = brightness * 249 + (1 - brightness) * 256;
+            let green = brightness * 211 + (1 - brightness) * 256;
+            let blue = brightness * 83 + (1 - brightness) * 256;
+            
+            barHeight = dataArray[i];
+
+            canvasCtx.fillStyle = 'rgb(' + red + ',' + green + ',' + blue + ')';
+            canvasCtx.fillRect(x,HEIGHT-barHeight/2,barWidth,barHeight/2);
+
+            x += barWidth + 1;
+        }
+    };
+
+    draw();
+}
