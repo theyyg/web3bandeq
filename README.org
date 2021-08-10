@@ -124,7 +124,10 @@ The signal flow diagram below shows the processing architecture used.
   @enduml
 #+end_src
 
-[[file:images/signal_arch.png]]
+#+caption: <Web Audio API Three Band Equalizer>
+#+attr_html: :width 925 px
+#+attr_html: :height 455 px
+[[https://theyyg.github.io/web3bandeq/images/signal_arch.png]]
 
 * Resources
 [[https://developer.mozilla.org/en-US/docs/Web/API/AudioNode/webaudiobasics.png][Web Audio Routing]]
