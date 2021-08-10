@@ -56,40 +56,74 @@ After investigating the available web technologies, I selected the Web Audio API
 - [ ] Add a visualization to represent the frequency band gains
 - [ ] Move gain control from html input elements to the HTML5 canvas visualization
 
+* Project
+
+** Resources and Repositories
+- [[https://github.com/theyyg/web3bandeq/deployments/activity_log?environment=github-pages][theyyg/web3bandeq]] :: The github repo for this project containing [[https://github.com/theyyg/web3bandeq/deployments/activity_log?environment=github-pages][source code]] and the [[https://theyyg.github.io/web3bandeq/][demo]]
+- [[https://github.com/theyyg/pizzicato][theyyg/pizzicato]] :: A forked version of the javascript library [[https://github.com/alemangui/pizzicato][Pizzicato]], with a custom three band equalizer implementation. [ [[https://alemangui.github.io/pizzicato/#sound-from-waveform][Documentation]] ]
+- [[https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API][Web Audio API]] :: The Web Audio API is the fundamental technology that enabled this project.
+
 ** Processing
 The signal flow diagram below shows the processing architecture used.
 
-#+begin_src plantuml :file images/signal-arch.png
-  rectangle "AudioSource" as source
+#+begin_src plantuml :file images/signal_arch.png :results export
+  top to bottom direction
+
+  skinparam line {
+    'type polyline
+    type ortho
+  }
+
+  @startuml
+
+  usecase "Play/Pause Control" as play
+  usecase "Stop Control" as stop
+  rectangle "AudioSource\nLoad from URL" as source
   rectangle "Low-Band Filter" as low
+  usecase "Low Gain Slider" as low_slider
   rectangle "Gain Stage" as low_gain
   rectangle "Mid-Band Filter" as mid
+  usecase "Mid Gain Slider" as mid_slider
   rectangle "Gain Stage" as mid_gain
   rectangle "High-Band Filter" as high
+  usecase "High Gain Slider" as high_slider
   rectangle "Gain Stage" as high_gain
   rectangle "Destination" as mixer
   rectangle "AudioListener" as listener
 
-  high -[hidden]d->mid
-  mid -[hidden]d->low
+  
+  play -[#2244CC]r-> source
+  stop -[#2244CC]l-> source
 
-  high_gain -[hidden]d-> mid_gain
-  mid_gain -[hidden]d-> low_gain
+  source --> mid
+  source --> low
+  source --> high
 
-  source -> low
-  source -right-> mid
-  source -> high
+  low --> low_gain
+  low_slider -[#24B]r-> low_gain
+  low_gain -[hidden]r-> mid_slider
 
-  low -> low_gain
-  mid -> mid_gain
-  high -> high_gain
+  mid --> mid_gain
+  mid_slider -[#24B]r-> mid_gain
+  mid_gain -[hidden]r-> high_slider
+  
+  high --> high_gain
+  high_slider -[#24B]r-> high_gain
 
-  low_gain -> mixer
-  mid_gain -right-> mixer
-  high_gain -> mixer
+  low -[hidden]r-> mid
+  mid -[hidden]r-> high
 
-  mixer -> listener
+  low_gain --> mixer
+  mid_gain --> mixer
+  high_gain --> mixer
+
+  mixer --> listener
+
+  @enduml
 #+end_src
+
+#+RESULTS:
+[[file:images/signal_arch.png]]
 
 * Resources
 [[https://developer.mozilla.org/en-US/docs/Web/API/AudioNode/webaudiobasics.png][Web Audio Routing]]

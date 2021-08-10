@@ -9,7 +9,7 @@ var threeBandEq = new Pizzicato.Effects.ThreeBandEqualizer({
 });
 
 // PZ Sound
-var sound = new Pizzicato.Sound('https://theyyg.github.io/web3bandeq/audio/synth.mp3', function() {
+var sound = new Pizzicato.Sound('https://theyyg.github.io/web3bandeq/audio/nature.wav', function() {
     // Enable after adding the threeBandEq to Pizzacato
     sound.addEffect(threeBandEq);
 });
